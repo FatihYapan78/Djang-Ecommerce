@@ -351,92 +351,89 @@ def checkout(request):
     # }
 
     # if request.method == "POST":
-    #     Payment Card
-    #     cardHolderName = request.POST.get("card-name")
-    #     cardNumber = request.POST.get("card-number")
-    #     expireMonth = request.POST.get("expiry-month")
-    #     expireYear = request.POST.get("expiry-year")
-    #     cvv = request.POST.get("cvv-code")
+        # Payment Card
+        # cardHolderName = request.POST.get("card-name")
+        # cardNumber = request.POST.get("card-number")
+        # expireMonth = request.POST.get("expiry-month")
+        # expireYear = request.POST.get("expiry-year")
+        # cvv = request.POST.get("cvv-code")
 
-    #     # Buyer
-    #     name = request.POST.get('first-name')
-    #     surname = request.POST.get('last-name')
-    #     phonenumber = request.POST.get('phone-number')
-    #     email = request.POST.get('email')
-    #     # identityNumber = request.POST.get('identityNumber')
+        # Buyer
+        # name = request.POST.get('first-name')
+        # surname = request.POST.get('last-name')
+        # phonenumber = request.POST.get('phone-number')
+        # email = request.POST.get('email')
+        # identityNumber = request.POST.get('identityNumber')
 
 
 
-    #     payment_card = {
-    #         'cardHolderName': cardHolderName,
-    #         'cardNumber': cardNumber,
-    #         'expireMonth': expireMonth,
-    #         'expireYear': expireYear,
-    #         'cvc': cvv,
-    #         'registerCard': '0'
-    #     }
+        # payment_card = {
+        #     'cardHolderName': cardHolderName,
+        #     'cardNumber': cardNumber,
+        #     'expireMonth': expireMonth,
+        #     'expireYear': expireYear,
+        #     'cvc': cvv,
+        #     'registerCard': '0'
+        # }
 
-    #     buyer = {
-    #         'id': request.user.id,
-    #         'name': name,
-    #         'surname': surname,
-    #         'gsmNumber': phonenumber,
-    #         'email': email,
-    #         'identityNumber': '74300864791',
-    #         'registrationAddress': 'Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1',
-    #         'ip': request.META.get('REMOTE_ADDR'),
-    #         'city': 'Istanbul',
-    #         'country': 'Turkey',
-    #         'zipCode': '34732'
-    #     }
+        # buyer = {
+        #     'id': request.user.id,
+        #     'name': name,
+        #     'surname': surname,
+        #     'gsmNumber': phonenumber,
+        #     'email': email,
+        #     'identityNumber': '74300864791',
+        #     'registrationAddress': 'Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1',
+        #     'ip': request.META.get('REMOTE_ADDR'),
+        #     'city': 'Istanbul',
+        #     'country': 'Turkey',
+        #     'zipCode': '34732'
+        # }
 
-    #     address = {
-    #         'contactName': f'{name} {surname}',
-    #         'city': 'Istanbul',
-    #         'country': 'Turkey',
-    #         'address': 'Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1',
-    #         'zipCode': '34732'
-    #     }
+        # address = {
+        #     'contactName': f'{name} {surname}',
+        #     'city': 'Istanbul',
+        #     'country': 'Turkey',
+        #     'address': 'Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1',
+        #     'zipCode': '34732'
+        # }
 
-    #     basket_items = []
+        # basket_items = []
 
-    #     for product in basket_products:
-    #         item = {
-    #             'id': product.product.id,
-    #             'name': product.product.model,
-    #             'category1': product.product.marka.brand,
-    #             'itemType': "PHYSICAL",
-    #             'price': product.product.fiyat * product.adet
-    #         }
-    #         basket_items.append(item)
+        # for product in basket_products:
+        #     item = {
+        #         'id': product.product.id,
+        #         'name': product.product.model,
+        #         'category1': product.product.marka.brand,
+        #         'itemType': "PHYSICAL",
+        #         'price': product.product.fiyat * product.adet
+        #     }
+        #     basket_items.append(item)
 
-    #     iyzico_request = {
-    #         'locale': 'tr',
-    #         'conversationId': order.order_id,
-    #         "price": product_total_price,
-    #         'paidPrice': total_price,
-    #         'currency': 'TRY',
-    #         'installment': 1,
-    #         'basketId': 'B67832',
-    #         'paymentChannel': 'WEB',
-    #         'paymentGroup': 'PRODUCT',
-    #         "callbackUrl": "http://127.0.0.1:8000/order_success/",
-    #         'paymentCard': payment_card,
-    #         'buyer': buyer,
-    #         'shippingAddress': address,
-    #         'billingAddress': address,
-    #         'basketItems': basket_items
-    #     }
+        # iyzico_request = {
+        #     'locale': 'tr',
+        #     'conversationId': order.order_id,
+        #     "price": product_total_price,
+        #     'paidPrice': total_price,
+        #     'currency': 'TRY',
+        #     'installment': 1,
+        #     'basketId': 'B67832',
+        #     'paymentChannel': 'WEB',
+        #     'paymentGroup': 'PRODUCT',
+        #     "callbackUrl": "http://127.0.0.1:8000/order_success/",
+        #     'paymentCard': payment_card,
+        #     'buyer': buyer,
+        #     'shippingAddress': address,
+        #     'billingAddress': address,
+        #     'basketItems': basket_items
+        # }
 
-    #     payment = iyzipay.CheckoutFormInitialize().create(iyzico_request, options)
+        # payment = iyzipay.CheckoutFormInitialize().create(iyzico_request, options)
 
-    #     print(payment.read().decode('utf-8'))
-    #     content = payment.read().decode('utf-8')
-    #     json_content = json.loads(content)
-    #     request.session['token'] = json_content['token']
-    #     request.session['order_id'] = order.order_id
-    #     if json_content['status'] == "success":
-    #         return redirect(json_content["paymentPageUrl"]) 
+        # print("Burada",payment.read().decode('utf-8'))
+        # json_content = json.loads(payment.read().decode('utf-8'))
+        # if json_content['status'] == "success":
+        #     return redirect(json_content["paymentPageUrl"]) 
 
     context={
         "profil_info":profil_info,
